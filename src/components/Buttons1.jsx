@@ -1,27 +1,22 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { counterActions} from "../store/counter";  // used to access the reducers of a slice and dispathc a action to it
+import { privacyActions } from "../store/privacy";
 
 export default function Buttons1() {
   const dispatch = useDispatch();
+
   const handleOnAdd = () => {
-    dispatch({
-      type: "ADD",
-    });
+    dispatch(counterActions.increment());
   };
 
   const handleOnDel = () => {
-    dispatch({
-      type: "DELETE",
-    });
+    dispatch(counterActions.decrement());
   };
 
   const togglePrivacy = () => {
-    dispatch({
-      type: "PRIVACY",
-    });
+    dispatch(privacyActions.toggle());
   };
-
-  
 
   return (
     <>

@@ -1,26 +1,17 @@
 import React, { useRef } from "react";
 import { useDispatch } from "react-redux";
+import { counterActions } from "../store/counter";
 
 export default function Buttons2() {
   const num = useRef();
   const dispatch = useDispatch();
   const handleAdd = () => {
-    dispatch({
-      type: "INCREMENT",
-      payload: {
-        num: num.current.value,
-      },
-    });
+    dispatch(counterActions.add(num.current.value));
   };
   const handleSubtract = () => {
-    dispatch({
-      type: "DECREMENT",
-      payload: {
-        num: num.current.value,
-      },
-    });
+    dispatch(counterActions.subtract(num.current.value));
   };
-  
+
   return (
     <>
       <div>
